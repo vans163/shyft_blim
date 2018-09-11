@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>THEAPPP</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <!-- Bulma Version 0.7.1-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.4.2/umd/react.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.4.2/umd/react-dom.development.js"></script>
+
+    <style type="text/css">
+        html, body {
+            background: #EFF3F4;
+            font-family: 'Open Sans';
+        }
+        .navbar {
+            background-color: #fff;
+        }
+        /*img {
+            padding: 5px;
+            border: 1px solid #ccc;
+        }*/
+
+
+.features {
+  padding: 1rem 0;
+}
+.box.cta {
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+}
+.card-image > .fa {
+  font-size: 8rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  color: #209cee;
+}
+.card-content .content {
+  font-size: 14px;
+  margin: 1rem 1rem;
+}
+.card-content .content h4 {
+  font-size: 16px;
+  font-weight: 700;
+}
+.card {
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.18);
+  margin-bottom: 2rem;
+}
+.intro {
+  padding: 5rem 0;
+  text-align: center;
+}
+.sandbox {
+  padding: 5rem 0;
+}
+.tile.notification {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.is-shady {
+animation: flyintoright .4s backwards;
+background: #fff;
+box-shadow: rgba(0, 0, 0, .1) 0 1px 0;
+border-radius: 4px;
+display: inline-block;
+margin: 10px;
+position: relative;
+transition: all .2s ease-in-out;
+}
+.is-shady:hover {
+box-shadow: 0 10px 16px rgba(0, 0, 0, .13), 0 6px 6px rgba(0, 0, 0, .19);
+}
+/*adds font awesome stars*/
+footer li:before {
+  content: '\f1b2';
+  font-family: 'FontAwesome';
+  float: left;
+  margin-left: -1.5em;
+  color: #147efb;
+}
+    </style>
+
+<style>
+.divider-vertical {
+    height: 100%;
+    margin: 0 9px;
+    border-left: 1px solid #969696;
+    border-right: 1px solid #FFF;
+}
+
+.card-image:hover {
+    background: #000;
+    transform: scale(1.02, 1.02);
+    transition: .4s transform;
+    z-index: 10;
+}
+
+.card-image .image img {
+    opacity: 1;
+}
+
+.card-image .card-hover {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 11;
+}
+
+.card-image .card-hover:hover {
+    /*opacity: 1;*/
+    opacity: 0.6;
+    transition: .1s opacity;
+    background: black;
+}
+
+.card-image .card-btns {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+.card-btn {
+    display: inline-block;
+    width: 48%;
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.4;
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    border-radius: 4px;
+
+}
+
+.card-btn:hover {
+    color: #fff;
+}
+
+.btn-transparent {
+    background: transparent;
+    color: #F2F2F2;
+    -webkit-transition: background .2s ease-in-out, border .2s ease-in-out;
+    -moz-transition: background .2s ease-in-out, border .2s ease-in-out;
+    -o-transition: background .2s ease-in-out, border .2s ease-in-out;
+    transition: background .2s ease-in-out, border .2s ease-in-out;
+    /* border: 2px solid #b9bdbf;*/
+}
+
+.btn-transparent:hover {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.cover {
+    opacity: 0.8;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 12;
+    background: rgba(241, 241, 241, 0.77);
+}
+
+</style>
+
+</head>
+
+<body id="home">
+
+<nav class="navbar"></nav>
+<nav class="navbar is-transparent is-fixed-top has-shadow" style="box-shadow: 0 2px 3px rgba(10,10,10,.1)">
+  <div class="navbar-brand">
+    <span class="navbar-item">
+        <span style="cursor: default;">&nbsp;&nbsp;&nbsp;THEAPPP (<script>document.write(document.cookie);</script>)</span>
+    </span>
+
+    <button class="button navbar-burger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+  </div>
+
+  <div class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item" onclick="badge_all()">
+        Badges
+      </a>
+      <a class="navbar-item" onclick="item_all()">
+        Items
+      </a>
+    </div>
+
+    <div class="navbar-end">
+
+
+    </div>
+  </div>
+</nav>
+
+
+        <section class="container" style="padding: 10px; margin-bottom: 20px;">
+            <a class="button" onclick="make_badge(0)">
+              <span class="icon">
+                <i class="fas fa-sign-in-alt"></i>
+              </span>
+              <span>Create Easy Badge</span>
+            </a>
+            <a class="button" onclick="make_badge(1)">
+              <span class="icon">
+                <i class="fas fa-sign-in-alt"></i>
+              </span>
+              <span>Create Hard Badge</span>
+            </a>
+            <a class="button disabled" disabled>
+              <span class="icon">
+                <i class="fas fa-sign-in-alt"></i>
+              </span>
+              <span>Create Extra Hard Badge</span>
+            </a>
+            <p id="score">
+              Score is:
+            </p>
+        </section>
+
+        <section class="container" style="padding: 10px; margin-bottom: 20px;">
+            <div id="react_grid_game_filter" class="box is-radiusless" style="padding: 10px; margin-bottom: 20px;"></div>
+            <div class="spacer"></div>
+            <div id="react_grid_game" class="columns is-multiline"></div>
+        </section>
+
+<footer class="footer" style="padding: 1rem">
+    <div class="container">
+        <div class="level">
+            <div class="level-item">
+                <div class="content has-text-centered">
+                    <p>© Copyright 2018 THEAPPP</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+
+</html>
+
+<script>
+    /* navbar menu toggle */
+    try {
+        document.querySelector('.navbar-burger').addEventListener('click', function() {
+            if(this.classList.contains('is-active')) {
+                this.classList.remove('is-active');
+                document.querySelector('.navbar-menu').classList.remove('is-active');
+            } else {
+                this.classList.add('is-active');
+                document.querySelector('.navbar-menu').classList.add('is-active');
+            }
+        });
+    } catch (e){
+    }
+</script>
+
+<script>
+    function POST(url, obj, callback, callback_error) {
+        callback_error = callback_error || function () {};
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', url);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                body = xhr.responseText;
+                json = JSON.parse(body);
+                callback(json);
+            }
+            else if (xhr.status !== 200) {
+                callback_error();
+                alert('Request failed.  Returned status of ' + xhr.status);
+            }
+        };
+        xhr.send(JSON.stringify(obj));
+    }
+
+    function post_promise(apiUrl, json) {
+        return new Promise(function(resolve, reject) {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function(e) {
+              if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                  resolve(xhr.response)
+                } else {
+                  reject(xhr.status)
+                }
+              }
+            }
+            xhr.ontimeout = function () {
+              reject('timeout')
+            }
+
+            xhr.open('POST', apiUrl);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(json);
+        });
+    }
+
+    async function post_api(json) {
+        return await post_promise("/api", json);
+    }
+</script>
+
+<script>
+    var apiUrl = "/api";
+
+    var root_render_func;
+
+    var state = {
+        grid_game_list: [],
+        grid_filter_select: "all",
+        grid_filter_free_to_play_checked: true,
+        grid_filter_query: ""
+    };
+
+    function make_badge(type) {
+      POST(apiUrl, {method: "create_badge", type: type}, function (e) {
+        window.location = "/";
+      });
+    }
+
+    function score_it() {
+        score = state.grid_game_list.reduce(
+          function(a,c){
+            return a+c.dust_value;
+          },0);
+        return score;
+    }
+
+    function set_state(key, value) {
+        state[key] = value;
+        root_render_func();
+    }
+
+    function transfer(uuid) {
+      var to = window.prompt();
+      POST(apiUrl, {method: "transfer", to: to, uuid: uuid}, function (e) {
+        window.location = "/";
+      });
+    }
+
+    function badge_all() {
+      POST(apiUrl, {method: "badge_all"}, function (e) {
+          set_state("grid_game_list", e);
+          e = document.getElementById("score");
+          e.innerHTML = `Score is: ${score_it()}`;
+      });
+    }
+
+    function item_all() {
+      POST(apiUrl, {method: "item_all"}, function (e) {
+          set_state("grid_game_list", e);
+      });
+    }
+
+    class GridGameGame extends React.Component {
+        render() {
+            var game_id = this.props.game_id;
+            var game_enabled = this.props.game_enabled;
+
+            var game_enabled_class = "";
+            if (game_enabled == false) {
+                game_enabled_class = "cover";
+            }
+
+            var title_icon = "fa fa-cloud fa-lg";
+            console.log(this.props.ta_ref);
+            switch(this.props.ta_ref) {
+              case "steam":
+                title_icon = "fab fa-steam-square fa-lg";
+                break;
+              case "microsoft":
+                title_icon = "fab fa-microsoft fa-lg";
+                break;
+              case "blizzard":
+                title_icon = "far fa-snowflake";
+                break;
+            }
+
+            var react_title =
+                React.createElement('p', {},
+                    React.createElement('i', {className: `${title_icon}`}),
+                    React.createElement('span', {className: "divider-vertical"}),
+                    React.createElement('span', null, `${this.props.name}`)
+                );
+
+            var renderd =
+                React.createElement('div', {className: "column is-3"},
+                    React.createElement('div', {className: "card is-marginless"},
+                        React.createElement('header', {className: "card-header"},
+                            React.createElement('div', {
+                                className: "card-header-title",
+                                style: {fontWeight: 400, cursor: "default"}
+                            }, react_title)
+                        ),
+                        React.createElement('div', {className: "card-image"},
+                            React.createElement('figure', {className: "image is-16by9 is-clipped"},
+                                React.createElement('img', {src: `/images/game_grid/${this.props.image}`})
+                            ),
+                            React.createElement('div', {className: "card-hover"},
+                                React.createElement('div', {className: "card-btns"},
+                                    React.createElement('a', {
+                                        onClick: function(){transfer(game_id)},
+                                        className: "card-btn btn-transparent",
+                                    }, this.props.type == "badge" ? "Details" : "Transfer"),
+                                )
+                            )
+                        ),
+                        React.createElement('div', {className: game_enabled_class})
+                    )
+                );
+            return renderd;
+        }
+    }
+
+    class GridGame extends React.Component {
+        render() {
+            var games_react = state.grid_game_list.map(function (game) {
+                return React.createElement(GridGameGame, {
+                    key: game.uuid,
+                    game_id: game.uuid,
+                    type: game.type,
+                    image: game.image,
+                    ta_ref: game.ta_ref,
+                    name: game.name,
+                    dust_value: game.dust_value
+                });
+            });
+            return games_react;
+        }
+    }
+
+    function root_render() {
+        var grid_game = React.createElement(GridGame, {}, null);
+        ReactDOM.render(grid_game, document.getElementById("react_grid_game"));
+    }
+
+    root_render_func = root_render;
+    root_render();
+
+    badge_all();
+
+    set_state('grid_game_list', JSON.parse(response)['list_game']);*/
+
+</script>
